@@ -1,5 +1,4 @@
 import sys
-import os
 
 def get_optimal_loot(W, weights, values):
     amounts = [0] * n
@@ -28,10 +27,9 @@ def get_best_item(weights, values):
     return best_item
 
 if __name__ == '__main__':
-
-    data = list(map(int, input().split()))
+    data = list(map(int, sys.stdin.read().split()))
     n, capacity = data[0:2]
     values = data[2:(2 * n + 2):2]
     weights = data[3:(2 * n + 2):2]
-    opt_loot = get_optimal_loot(capacity, weights, values)
-    print(f'{opt_loot:.10f}')
+    opt_value = get_optimal_loot(capacity, weights, values)
+    print("{:.10f}".format(opt_value))
